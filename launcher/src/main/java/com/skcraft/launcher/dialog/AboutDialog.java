@@ -30,10 +30,9 @@ public class AboutDialog extends JDialog {
         container.setLayout(new MigLayout("insets dialog"));
 
         container.add(new JLabel("<html>Licensed under GNU General Public License, version 3."), "wrap, gapbottom unrel");
-        container.add(new JLabel("<html>You are using SKCraft Launcher, an open-source customizable<br>" +
-                "launcher platform that anyone can use."), "wrap, gapbottom unrel");
-        container.add(new JLabel("<html>SKCraft does not necessarily endorse the version of<br>" +
-                "the launcher that you are using."), "wrap, gapbottom unrel");
+        container.add(new JLabel("<html>You are using StargateMC's Official Launcher, a fork of SKCraft's open source launcher."), "wrap, gapbottom unrel");
+        container.add(new JLabel("<html>StargateMC is a non-commercial community dedicated to supporting a near canon Stargate experience on Minecraft."), "wrap, gapbottom unrel");
+        container.add(new JLabel("<html>StargateMC is not affiliated with MGM."), "wrap, gapbottom unrel");
 
         JButton okButton = new JButton("OK");
         JButton sourceCodeButton = new JButton("Website");
@@ -47,7 +46,7 @@ public class AboutDialog extends JDialog {
         getRootPane().registerKeyboardAction(ActionListeners.dispose(this), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
 
         okButton.addActionListener(ActionListeners.dispose(this));
-        sourceCodeButton.addActionListener(ActionListeners.openURL(this, "https://github.com/SKCraft/Launcher"));
+        sourceCodeButton.addActionListener(ActionListeners.openURL(this, "https://www.stargatemc.com/"));
     }
 
     public static void showAboutDialog(Window parent) {

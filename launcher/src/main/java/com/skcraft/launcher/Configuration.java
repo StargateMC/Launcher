@@ -26,7 +26,7 @@ public class Configuration {
     private boolean offlineEnabled = false;
     private JavaRuntime javaRuntime;
     private String jvmArgs;
-    private int minMemory = 1024;
+    private int minMemory = 6144;
     private int maxMemory = 0; // Updated in Launcher
     private int permGen = 256;
     private int windowWidth = 854;

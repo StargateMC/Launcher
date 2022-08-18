@@ -122,7 +122,7 @@ public final class Launcher {
             if (available <= 6) {
                 suggestedMax = available * 0.48;
             } else {
-                suggestedMax = 4;
+                suggestedMax = 6;
             }
         } catch (Exception ignored) {
         }
