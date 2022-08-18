@@ -250,7 +250,7 @@ public final class WebpagePanel extends JPanel {
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setUseCaches(false);
-                conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Java) SKMCLauncher");
+                conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Java) SGMCLauncher");
                 conn.setDoInput(true);
                 conn.setDoOutput(false);
                 conn.setReadTimeout(5000);
@@ -260,9 +260,15 @@ public final class WebpagePanel extends JPanel {
                 checkInterrupted();
 
                 if (conn.getResponseCode() != 200) {
+                    if (conn.getResponseCode() >= 400 && conn.getResponseCode() <= 499) {
                     throw new IOException(
-                            "Did not get expected 200 code, got "
+                            "Failed to connect to StargateMC servers, error code: "
                                     + conn.getResponseCode());
+                    } else {
+                        throw new IOException(
+                                "An error encountered on StargateMC's servers, error code: "
+                                        + conn.getResponseCode());
+                    }
                 }
 
                 BufferedReader reader = new BufferedReader(
@@ -286,7 +292,7 @@ public final class WebpagePanel extends JPanel {
                 }
                 
                 log.log(Level.WARNING, "Failed to fetch page", e);
-                setError("Failed to fetch page: " + e.getMessage());
+                setError("Failed to fetch the latest StargateMC news, please check your internet connection!");
             } catch (InterruptedException e) {
             } finally {
                 if (conn != null)

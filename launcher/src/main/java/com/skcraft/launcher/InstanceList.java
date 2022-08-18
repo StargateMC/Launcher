@@ -188,7 +188,7 @@ public class InstanceList {
                     }
                 }
             } catch (IOException e) {
-                throw new IOException("The list of modpacks could not be downloaded.", e);
+                throw new IOException("Failed to connect to StargateMC's client deployment services." + System.lineSeparator() + "Please check you are connected to the internet and StargateMC.com is reachable before reporting any issues.", e);
             } finally {
                 synchronized (InstanceList.this) {
                     instances.clear();
